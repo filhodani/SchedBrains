@@ -1,9 +1,9 @@
 # SchedBrains
 
-O SchedBrain é um software para gerenciamento de contatos, eventos e tarefas.
+O SchedBrains é um software para gerenciamento de contatos, eventos e tarefas.
 
 
-Ele está sendo desenvolvido como atividade avaliativa da disciplina Projeto e Desenvolvimento de Sistemas I, do curso superior de Tecnologia em Análise e Desenvolvimento de Sistemas do IFSP Câmpus Barretos.
+Ele está sendo desenvolvido como atividade avaliativa das disciplinas de Programação Orientada a Objetos II e Projeto e Desenvolvimento de Sistemas I, do curso superior de Tecnologia em Análise e Desenvolvimento de Sistemas do IFSP Câmpus Barretos.
 
 
 Endereço do código no GitHub: https://github.com/filhodani/SchedBrains/
