@@ -35,7 +35,7 @@ namespace SchedBrains.Model
         public string? Telefone { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime? Nascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
 
         [Required]
         public bool Favorito { get; set; } = false;
@@ -43,17 +43,19 @@ namespace SchedBrains.Model
         [Required]
         public TipoContato Tipo { get; set; }
 
-        public Contato(string nome, string sobrenome, string apelido, string email, DateTime nascimento, TipoContato tipo, string telefone, string? imagem)
+        public Contato(string nome, string sobrenome, string? apelido, string? email, DateTime? nascimento, TipoContato tipo, string telefone, string? imagem)
         {
             Nome = nome;
             Sobrenome = sobrenome;
             Apelido = apelido;
             Email = email;
-            Nascimento = nascimento;
+            DataNascimento = nascimento;
             Tipo = tipo;
             Telefone = telefone;
             Imagem = imagem;
         }
+
+        public Contato() { }
 
         public bool AlterarFavorito()
         {
