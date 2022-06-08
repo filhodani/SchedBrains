@@ -16,5 +16,16 @@ namespace SchedBrains.View
         {
             InitializeComponent();
         }
+
+        private void btnTarefa_Click(object sender, EventArgs e)
+        {
+            FrmTarefa frmTarefa = new FrmTarefa();
+            frmTarefa.ShowDialog();
+        }
+
+        private void btnEvento_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -49,18 +49,18 @@ namespace SchedBrains.Model
         public SituacaoTarefa Situacao { get; set; }
 
 
-        //public Tarefa(string _Titulo, string? _Descricao, DateTime? _DataMaximaConclusao,
-        //    PrioridadeTarefa _Prioridade, string? _Anexos, string? _Contatos, string? _Evento, SituacaoTarefa _Situacao)
-        //{
-        //    DataCriacao = DateTime.Now;
-        //    Titulo = _Titulo;
-        //    Descricao = _Descricao;
-        //    DataMaximaConclusao = _DataMaximaConclusao;
-        //    Prioridade = _Prioridade;
-        //    Anexos = _Anexos;
-        //    Contatos = _Contatos;
-        //    Evento = _Evento;
-        //    Situacao = _Situacao;
-        //}
+        public Tarefa(string _Titulo, string? _Descricao, DateTime? _DataMaximaConclusao, PrioridadeTarefa _Prioridade, string? _Anexos, string? _Contatos, int? _EventoId, SituacaoTarefa _Situacao)
+        {
+            Titulo = _Titulo;
+            Descricao = _Descricao;
+            DataMaximaConclusao = _DataMaximaConclusao;
+            Prioridade = _Prioridade;
+            Anexos = _Anexos;
+            Contatos = _Contatos;
+            EventoId = _EventoId;
+            Situacao = _Situacao;
+        }
+
+        public Tarefa() { }
     }
 }
