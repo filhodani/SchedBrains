@@ -1,4 +1,5 @@
-﻿using SchedBrains.Helpers;
+﻿using SchedBrains.Controller;
+using SchedBrains.Helpers;
 using SchedBrains.Model;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,17 @@ namespace SchedBrains.View
             //Fazer: Preencher cboEvento com títulos dos eventos
             //cboEvento.DataSource = listaTarefas;
 
-            //Fazer: Buscar todas as tarefas
+            listaTarefas = TarefaController.Listar();
+            if (listaTarefas.Count > 0)
+            {
+                foreach (Tarefa tarefa in listaTarefas)
+                {
+                    UscTarefa uct = new UscTarefa();
+                    uct.frmTarefa = this;
+                    uct.Carregar(tarefa);
+                    flpTarefas.Controls.Add(uct);
+                }
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -42,19 +53,19 @@ namespace SchedBrains.View
             if (txtTitulo.Text.Trim() == "")
             {
                 erro = true;
-                errorProviderTarefa.SetError(txtTitulo, "Campo obrigatório");
+                errorProviderTarefa.SetError(txtTitulo, "É necessário informar um título para a tarefa!");
             }
 
             if (cboPrioridade.SelectedIndex == 0)
             {
                 erro = true;
-                errorProviderTarefa.SetError(cboPrioridade, "Campo obrigatório");
+                errorProviderTarefa.SetError(cboPrioridade, "Defina a prioridade da tarefa!");
             }
 
             if (dtpDataMaximaConclusao.Checked && dtpDataMaximaConclusao.Value < DateTime.Now)
             {
                 erro = true;
-                errorProviderTarefa.SetError(dtpDataMaximaConclusao, "Campo inválido");
+                errorProviderTarefa.SetError(dtpDataMaximaConclusao, "Data de conclusão inválida!");
             }
 
             if (erro == false)
@@ -88,7 +99,7 @@ namespace SchedBrains.View
                     //Tarefa TarefaAtual = new Tarefa { Id = id, DataCriacao = DateTime.Now, Titulo = titulo, Descricao = descricao, DataMaximaConclusao = dataMaximaConclusao, Prioridade = prioridade, Anexos = null, Evento = null, Contatos = null, Situacao = SituacaoTarefa.Pendente };
                     listaTarefas.Add(TarefaAtual);
 
-                    //Fazer: Salvar Tarefa no banco
+                    TarefaController.Adicionar(TarefaAtual);
 
                     UscTarefa uct = new UscTarefa();
                     uct.frmTarefa = this;
@@ -105,17 +116,17 @@ namespace SchedBrains.View
                     int i = listaTarefas.FindIndex(tarefa => tarefa.Id == TarefaAtual.Id);
                     listaTarefas[i] = TarefaAtual;
 
-                    //Fazer: Atualizar tarefa do banco
+                    TarefaController.Atualizar(TarefaAtual);
 
                     UscTarefaAtual.Carregar(TarefaAtual);
 
                     mensagem = "Tarefa alterada com sucesso!";
-                    TarefaAtual = null;
                 }
 
                 using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
-                    MessageBox.Show(mensagem, "SchedBrain", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mensagem, "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limparFormulario();
+                TarefaAtual = null;
             }
         }
 
@@ -168,25 +179,50 @@ namespace SchedBrains.View
             int i = listaTarefas.FindIndex(tarefa => tarefa.Id == TarefaAtual.Id);
             listaTarefas[i] = TarefaAtual;
 
-            //Fazer: Atualizar tarefa do banco
-
+            TarefaController.Atualizar(TarefaAtual);
             UscTarefaAtual.Carregar(TarefaAtual);
-            TarefaAtual = null;
 
             using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
-                MessageBox.Show("Tarefa concluída!", "SchedBrain", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tarefa concluída!", "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            limparFormulario();
+            TarefaAtual = null;
         }
 
         public void excluirTarefa(int idTarefa)
         {
-            limparFormulario();
-
-            listaTarefas = listaTarefas.Where(tarefa => tarefa.Id != idTarefa).ToList();
-
-            //Fazer: Deletar tarefa do banco
+            TarefaAtual = listaTarefas.FirstOrDefault(tarefa => tarefa.Id == idTarefa);
+            TarefaController.Excluir(TarefaAtual);
 
             using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
-                MessageBox.Show("Tarefa excluída com sucesso!", "SchedBrain", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tarefa excluída com sucesso!", "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            limparFormulario();
+            TarefaAtual = null;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string situacao = "";
+            string prioridade = "";
+
+            if (cboSituacao.SelectedIndex != 0)
+                situacao = cboSituacao.Text.Trim();
+
+            if (cboPrioridadeBusca.SelectedIndex != 0)
+                prioridade = cboPrioridadeBusca.Text.Trim();
+
+            listaTarefas = TarefaController.Pesquisar(txtTrecho.Text.Trim(), situacao, prioridade, dtpDataConclusao.Checked, dtpDataConclusao.Value);
+
+            flpTarefas.Controls.Clear();
+            if (listaTarefas.Count > 0)
+            {
+                foreach (Tarefa tarefa in listaTarefas)
+                {
+                    UscTarefa uct = new UscTarefa();
+                    uct.frmTarefa = this;
+                    uct.Carregar(tarefa);
+                    flpTarefas.Controls.Add(uct);
+                }
+            }
         }
     }
 }

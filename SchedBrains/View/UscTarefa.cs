@@ -47,11 +47,16 @@ namespace SchedBrains.View
                 this.BackColor = Color.FromArgb(230, 235, 235);
                 lblTitulo.ForeColor = Color.DarkGreen;
                 lblSituacao.ForeColor = Color.DarkGreen;
+
+                mnuEditar.Visible = false;
+                mnuConcluir.Visible = false;
             }
 
 
             if (t.DataMaximaConclusao != null)
                 DataConclusao = t.DataMaximaConclusao.Value.ToString().Substring(0, 16);
+            else
+                DataConclusao = "";
 
 
             string descricao = "";
@@ -105,7 +110,7 @@ namespace SchedBrains.View
             {
                 DialogResult dr;
                 using (DialogCenteringService centeringService = new DialogCenteringService(frmTarefa)) // center message box
-                    dr = MessageBox.Show("Tem certeza de que deseja concluir esta tarefa?", "SchedBrain", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    dr = MessageBox.Show("Tem certeza de que deseja concluir esta tarefa?", "SchedBrains", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (dr == DialogResult.OK)
                 {
                     frmTarefa.concluirTarefa(IdTarefa, this);
@@ -117,7 +122,7 @@ namespace SchedBrains.View
         {
             DialogResult dr;
             using (DialogCenteringService centeringService = new DialogCenteringService(frmTarefa)) // center message box
-                dr = MessageBox.Show("Tem certeza de que deseja excluir esta tarefa?", "SchedBrain", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                dr = MessageBox.Show("Tem certeza de que deseja excluir esta tarefa?", "SchedBrains", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (dr == DialogResult.OK)
             {
                 frmTarefa.excluirTarefa(IdTarefa);
