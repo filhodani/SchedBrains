@@ -38,7 +38,7 @@ namespace SchedBrains.View
                 else if (prioridade == PrioridadeTarefa.Baixa)
                     lblTitulo.ForeColor = Color.LimeGreen;
 
-                lblSituacao.ForeColor = Color.DarkOrange;
+                //lblSituacao.ForeColor = Color.Chocolate;
                 mnuEditar.Visible = true;
                 mnuConcluir.Visible = true;
             }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SchedBrains.Helpers;
 using SchedBrains.Model;
 using System;
 using System.Collections.Generic;
@@ -28,14 +29,29 @@ namespace SchedBrains.Controller
              * Verificar se a prioridade está presente no enum for no slide
              * if (tarefa.Prioridade)
                 throw new Exception("É necessário informar um título para a tarefa!");*/
+
+            bool invalido = true;
+            foreach (PrioridadeTarefa y in Enum.GetValues(typeof(PrioridadeTarefa)))
+            {
+                if (y == tarefa.Prioridade)
+                {
+                    invalido = false;
+                    break;
+                }
+            }
+            if (invalido)
+                throw new Exception("Prioridade inválida!");
         }
 
         internal static void Adicionar(Tarefa tarefa)
         {
-            Validar(tarefa);
+            if (tarefa != null)
+            {
+                Validar(tarefa);
 
-            dataContext.Add(tarefa);
-            dataContext.SaveChanges();
+                dataContext.Add(tarefa);
+                dataContext.SaveChanges();
+            }
         }
 
         internal static void Atualizar(Tarefa tarefa)
@@ -51,7 +67,6 @@ namespace SchedBrains.Controller
 
         internal static void Excluir(Tarefa tarefa)
         {
-
             if (tarefa != null)
             {
                 dataContext.TBTarefa.Remove(tarefa);
@@ -69,9 +84,9 @@ namespace SchedBrains.Controller
         internal static List<Tarefa> Pesquisar(string trecho, string situacao, string prioridade, bool temDataConclusao, DateTime dataConclusao)
         {
             if (temDataConclusao)
-                return dataContext.TBTarefa.Include(y => y.Evento).Where(x => (x.Titulo.Contains(trecho) || x.Descricao.Contains(trecho)) && x.Situacao.ToString().Contains(situacao) && x.Prioridade.ToString().Contains(prioridade) && x.DataMaximaConclusao != null && x.DataMaximaConclusao.Value.Day == dataConclusao.Day && x.DataMaximaConclusao.Value.Month == dataConclusao.Month && x.DataMaximaConclusao.Value.Year == dataConclusao.Year).ToList();
+                return dataContext.TBTarefa.Include(x => x.Evento).Where(x => (x.Titulo.Contains(trecho) || x.Descricao.Contains(trecho)) && ((char)x.Situacao).ToString().Contains(situacao) && ((char)x.Prioridade).ToString().Contains(prioridade) && x.DataMaximaConclusao != null && x.DataMaximaConclusao.Value.Day == dataConclusao.Day && x.DataMaximaConclusao.Value.Month == dataConclusao.Month && x.DataMaximaConclusao.Value.Year == dataConclusao.Year).ToList();
             else
-                return dataContext.TBTarefa.Include(y => y.Evento).Where(x => (x.Titulo.Contains(trecho) || x.Descricao.Contains(trecho)) && x.Situacao.ToString().Contains(situacao) && x.Prioridade.ToString().Contains(prioridade)).ToList();
+                return dataContext.TBTarefa.Include(x => x.Evento).Where(x => (x.Titulo.Contains(trecho) || x.Descricao.Contains(trecho)) && ((char)x.Situacao).ToString().Contains(situacao) && ((char)x.Prioridade).ToString().Contains(prioridade)).ToList();
         }
     }
 }

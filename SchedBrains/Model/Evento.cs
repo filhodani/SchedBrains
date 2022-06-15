@@ -59,5 +59,7 @@ namespace SchedBrains.Model
             Imagem = imagem;
             Contato = contato;
         }
+
+        public Evento() { }
     }
 }

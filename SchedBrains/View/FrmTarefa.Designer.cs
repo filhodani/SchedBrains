@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.cboEvento = new System.Windows.Forms.ComboBox();
-            this.btnContatos = new System.Windows.Forms.Button();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnAnexos = new System.Windows.Forms.Button();
+            this.btnContatos = new System.Windows.Forms.Button();
+            this.cboEvento = new System.Windows.Forms.ComboBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.cboPrioridade = new System.Windows.Forms.ComboBox();
             this.lblDataMaximaConclusao = new System.Windows.Forms.Label();
@@ -65,10 +65,10 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.splitContainer1.Panel1.Controls.Add(this.cboEvento);
-            this.splitContainer1.Panel1.Controls.Add(this.btnContatos);
-            this.splitContainer1.Panel1.Controls.Add(this.btnLimpar);
             this.splitContainer1.Panel1.Controls.Add(this.btnAnexos);
+            this.splitContainer1.Panel1.Controls.Add(this.btnContatos);
+            this.splitContainer1.Panel1.Controls.Add(this.cboEvento);
+            this.splitContainer1.Panel1.Controls.Add(this.btnLimpar);
             this.splitContainer1.Panel1.Controls.Add(this.btnSalvar);
             this.splitContainer1.Panel1.Controls.Add(this.cboPrioridade);
             this.splitContainer1.Panel1.Controls.Add(this.lblDataMaximaConclusao);
@@ -82,71 +82,67 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.splitContainer1.Panel2.Controls.Add(this.flpTarefas);
             this.splitContainer1.Panel2MinSize = 500;
-            this.splitContainer1.Size = new System.Drawing.Size(784, 410);
+            this.splitContainer1.Size = new System.Drawing.Size(784, 450);
             this.splitContainer1.SplitterDistance = 280;
             this.splitContainer1.TabIndex = 5;
-            // 
-            // cboEvento
-            // 
-            this.cboEvento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEvento.FormattingEnabled = true;
-            this.cboEvento.Items.AddRange(new object[] {
-            "Evento",
-            "Ateste",
-            "Bteste"});
-            this.cboEvento.Location = new System.Drawing.Point(12, 319);
-            this.cboEvento.Name = "cboEvento";
-            this.cboEvento.Size = new System.Drawing.Size(253, 23);
-            this.cboEvento.TabIndex = 8;
-            // 
-            // btnContatos
-            // 
-            this.btnContatos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnContatos.Location = new System.Drawing.Point(142, 290);
-            this.btnContatos.Name = "btnContatos";
-            this.btnContatos.Size = new System.Drawing.Size(123, 23);
-            this.btnContatos.TabIndex = 7;
-            this.btnContatos.Text = "Contatos";
-            this.btnContatos.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpar.Location = new System.Drawing.Point(142, 377);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(123, 23);
-            this.btnLimpar.TabIndex = 6;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnAnexos
             // 
             this.btnAnexos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnexos.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnAnexos.Enabled = false;
-            this.btnAnexos.Location = new System.Drawing.Point(12, 290);
+            this.btnAnexos.Location = new System.Drawing.Point(13, 330);
             this.btnAnexos.Name = "btnAnexos";
             this.btnAnexos.Size = new System.Drawing.Size(123, 23);
-            this.btnAnexos.TabIndex = 3;
+            this.btnAnexos.TabIndex = 10;
             this.btnAnexos.Text = "Anexos";
-            this.btnAnexos.UseVisualStyleBackColor = false;
-            this.btnAnexos.Click += new System.EventHandler(this.btnAnexos_Click);
+            this.btnAnexos.UseVisualStyleBackColor = true;
+            // 
+            // btnContatos
+            // 
+            this.btnContatos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnContatos.Location = new System.Drawing.Point(142, 330);
+            this.btnContatos.Name = "btnContatos";
+            this.btnContatos.Size = new System.Drawing.Size(123, 23);
+            this.btnContatos.TabIndex = 9;
+            this.btnContatos.Text = "Contatos";
+            this.btnContatos.UseVisualStyleBackColor = true;
+            // 
+            // cboEvento
+            // 
+            this.cboEvento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboEvento.DisplayMember = "Titulo";
+            this.cboEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEvento.FormattingEnabled = true;
+            this.cboEvento.Items.AddRange(new object[] {
+            "Evento"});
+            this.cboEvento.Location = new System.Drawing.Point(12, 359);
+            this.cboEvento.Name = "cboEvento";
+            this.cboEvento.Size = new System.Drawing.Size(253, 23);
+            this.cboEvento.TabIndex = 5;
+            this.cboEvento.ValueMember = "Id";
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpar.Location = new System.Drawing.Point(142, 417);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(123, 23);
+            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnSalvar.Location = new System.Drawing.Point(12, 377);
+            this.btnSalvar.Location = new System.Drawing.Point(12, 417);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(123, 23);
-            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // cboPrioridade
@@ -160,17 +156,17 @@
             "Alta",
             "Média",
             "Baixa"});
-            this.cboPrioridade.Location = new System.Drawing.Point(12, 348);
+            this.cboPrioridade.Location = new System.Drawing.Point(12, 388);
             this.cboPrioridade.Name = "cboPrioridade";
             this.cboPrioridade.Size = new System.Drawing.Size(253, 23);
-            this.cboPrioridade.TabIndex = 4;
+            this.cboPrioridade.TabIndex = 6;
             // 
             // lblDataMaximaConclusao
             // 
             this.lblDataMaximaConclusao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataMaximaConclusao.AutoSize = true;
-            this.lblDataMaximaConclusao.Location = new System.Drawing.Point(12, 243);
+            this.lblDataMaximaConclusao.Location = new System.Drawing.Point(12, 283);
             this.lblDataMaximaConclusao.Name = "lblDataMaximaConclusao";
             this.lblDataMaximaConclusao.Size = new System.Drawing.Size(150, 15);
             this.lblDataMaximaConclusao.TabIndex = 3;
@@ -182,7 +178,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataMaximaConclusao.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dtpDataMaximaConclusao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataMaximaConclusao.Location = new System.Drawing.Point(12, 261);
+            this.dtpDataMaximaConclusao.Location = new System.Drawing.Point(12, 301);
             this.dtpDataMaximaConclusao.Name = "dtpDataMaximaConclusao";
             this.dtpDataMaximaConclusao.ShowCheckBox = true;
             this.dtpDataMaximaConclusao.Size = new System.Drawing.Size(253, 23);
@@ -198,7 +194,7 @@
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.PlaceholderText = "Descrição";
-            this.txtDescricao.Size = new System.Drawing.Size(253, 195);
+            this.txtDescricao.Size = new System.Drawing.Size(253, 235);
             this.txtDescricao.TabIndex = 1;
             // 
             // txtTitulo
@@ -214,16 +210,14 @@
             // 
             // flpTarefas
             // 
-            this.flpTarefas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flpTarefas.AutoScroll = true;
             this.flpTarefas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.flpTarefas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpTarefas.Location = new System.Drawing.Point(0, 0);
             this.flpTarefas.Margin = new System.Windows.Forms.Padding(0);
             this.flpTarefas.Name = "flpTarefas";
             this.flpTarefas.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.flpTarefas.Size = new System.Drawing.Size(500, 410);
+            this.flpTarefas.Size = new System.Drawing.Size(500, 450);
             this.flpTarefas.TabIndex = 0;
             // 
             // errorProviderTarefa
@@ -299,7 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(784, 501);
             this.Controls.Add(this.cboSituacao);
             this.Controls.Add(this.dtpDataConclusao);
             this.Controls.Add(this.cboPrioridadeBusca);
@@ -333,14 +327,14 @@
         private Button btnSalvar;
         private ErrorProvider errorProviderTarefa;
         private FlowLayoutPanel flpTarefas;
-        private Button btnAnexos;
         private DateTimePicker dtpDataConclusao;
         private ComboBox cboPrioridadeBusca;
         private TextBox txtTrecho;
         private Button btnBuscar;
         private Button btnLimpar;
         private ComboBox cboSituacao;
-        private Button btnContatos;
         private ComboBox cboEvento;
+        private Button btnAnexos;
+        private Button btnContatos;
     }
 }

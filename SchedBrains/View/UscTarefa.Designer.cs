@@ -113,7 +113,7 @@
             this.lblSituacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSituacao.AutoSize = true;
             this.lblSituacao.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSituacao.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSituacao.ForeColor = System.Drawing.Color.DimGray;
             this.lblSituacao.Location = new System.Drawing.Point(390, 185);
             this.lblSituacao.Name = "lblSituacao";
             this.lblSituacao.Size = new System.Drawing.Size(57, 15);
