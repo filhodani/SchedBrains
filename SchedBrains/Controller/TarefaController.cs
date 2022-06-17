@@ -22,7 +22,7 @@ namespace SchedBrains.Controller
             if (tarefa.Descricao != null && tarefa.Descricao.Length > 2130)
                 throw new Exception("Descrição muito grande!");
 
-            if (tarefa.DataMaximaConclusao < DateTime.Now)
+            if (tarefa.DataMaximaConclusao != null && tarefa.DataMaximaConclusao < DateTime.Now)
                 throw new Exception("Data de conclusão inválida!");
 
             /* Verificar se o id do evento existe no banco

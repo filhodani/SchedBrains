@@ -28,58 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTarefa = new System.Windows.Forms.Button();
-            this.btnContato = new System.Windows.Forms.Button();
-            this.btnEvento = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuContatos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEventos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTarefas = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnTarefa
+            // menuStrip1
             // 
-            this.btnTarefa.Location = new System.Drawing.Point(115, 164);
-            this.btnTarefa.Name = "btnTarefa";
-            this.btnTarefa.Size = new System.Drawing.Size(75, 23);
-            this.btnTarefa.TabIndex = 0;
-            this.btnTarefa.Text = "Tarefa";
-            this.btnTarefa.UseVisualStyleBackColor = true;
-            this.btnTarefa.Click += new System.EventHandler(this.btnTarefa_Click);
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuContatos,
+            this.mnuEventos,
+            this.mnuTarefas,
+            this.sairToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnContato
+            // mnuContatos
             // 
-            this.btnContato.Location = new System.Drawing.Point(287, 164);
-            this.btnContato.Name = "btnContato";
-            this.btnContato.Size = new System.Drawing.Size(75, 23);
-            this.btnContato.TabIndex = 1;
-            this.btnContato.Text = "Contato";
-            this.btnContato.UseVisualStyleBackColor = true;
+            this.mnuContatos.Name = "mnuContatos";
+            this.mnuContatos.Size = new System.Drawing.Size(67, 20);
+            this.mnuContatos.Text = "Contatos";
+            this.mnuContatos.Click += new System.EventHandler(this.mnuContatos_Click);
             // 
-            // btnEvento
+            // mnuEventos
             // 
-            this.btnEvento.Location = new System.Drawing.Point(474, 164);
-            this.btnEvento.Name = "btnEvento";
-            this.btnEvento.Size = new System.Drawing.Size(75, 23);
-            this.btnEvento.TabIndex = 2;
-            this.btnEvento.Text = "Evento";
-            this.btnEvento.UseVisualStyleBackColor = true;
-            this.btnEvento.Click += new System.EventHandler(this.btnEvento_Click);
+            this.mnuEventos.Name = "mnuEventos";
+            this.mnuEventos.Size = new System.Drawing.Size(60, 20);
+            this.mnuEventos.Text = "Eventos";
+            this.mnuEventos.Click += new System.EventHandler(this.mnuEventos_Click);
+            // 
+            // mnuTarefas
+            // 
+            this.mnuTarefas.Name = "mnuTarefas";
+            this.mnuTarefas.Size = new System.Drawing.Size(55, 20);
+            this.mnuTarefas.Text = "Tarefas";
+            this.mnuTarefas.Click += new System.EventHandler(this.mnuTarefas_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnEvento);
-            this.Controls.Add(this.btnContato);
-            this.Controls.Add(this.btnTarefa);
+            this.ClientSize = new System.Drawing.Size(834, 461);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPrincipal";
             this.Text = "FrmPrincipal";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Button btnTarefa;
-        private Button btnContato;
-        private Button btnEvento;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem mnuContatos;
+        private ToolStripMenuItem mnuEventos;
+        private ToolStripMenuItem mnuTarefas;
+        private ToolStripMenuItem sairToolStripMenuItem;
     }
 }

@@ -17,15 +17,27 @@ namespace SchedBrains.View
             InitializeComponent();
         }
 
-        private void btnTarefa_Click(object sender, EventArgs e)
+        private void mnuContatos_Click(object sender, EventArgs e)
+        {
+            FrmContato frmContato = new FrmContato();
+            frmContato.ShowDialog();
+        }
+
+        private void mnuEventos_Click(object sender, EventArgs e)
+        {
+            FrmEvento frmEvento = new FrmEvento();
+            frmEvento.ShowDialog();
+        }
+
+        private void mnuTarefas_Click(object sender, EventArgs e)
         {
             FrmTarefa frmTarefa = new FrmTarefa();
             frmTarefa.ShowDialog();
         }
 
-        private void btnEvento_Click(object sender, EventArgs e)
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

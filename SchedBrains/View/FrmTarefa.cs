@@ -32,7 +32,7 @@ namespace SchedBrains.View
 
             listaEventos = EventoController.Listar();
             listaEventos.Insert(0, new Evento{ Id = -1, Titulo = "Evento" });
-            if (listaEventos.Count > 0)
+            if (listaEventos.Count > 1)
                 cboEvento.DataSource = listaEventos;
 
             listaTarefas = TarefaController.Listar();
@@ -110,7 +110,7 @@ namespace SchedBrains.View
                         dtpDataMaximaConclusao.Value.Hour, dtpDataMaximaConclusao.Value.Minute, 0);
                 }
 
-                    PrioridadeTarefa prioridade = PrioridadeTarefa.Alta;
+                PrioridadeTarefa prioridade = PrioridadeTarefa.Alta;
                 if (cboPrioridade.SelectedItem.ToString() == "Média")
                     prioridade = PrioridadeTarefa.Média;
                 else if (cboPrioridade.SelectedItem.ToString() == "Baixa")
