@@ -112,9 +112,7 @@ namespace SchedBrains.View
                 using (DialogCenteringService centeringService = new DialogCenteringService(frmTarefa)) // center message box
                     dr = MessageBox.Show("Tem certeza de que deseja concluir esta tarefa?", "SchedBrains", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (dr == DialogResult.OK)
-                {
                     frmTarefa.concluirTarefa(IdTarefa, this);
-                }
             }
         }
 

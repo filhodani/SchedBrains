@@ -1,4 +1,5 @@
-﻿using SchedBrains.Model;
+﻿using SchedBrains.Helpers;
+using SchedBrains.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,13 @@ namespace SchedBrains.View
             IdContato = c.Id;
             Nome = $"{c.Nome} {c.Sobrenome}";
 
+
+            Imagem = c.Imagem;
+            if (Imagem != null && File.Exists(Imagem))
+                pcbImgPerfil.Image = new Bitmap(Imagem);
+            else
+                pcbImgPerfil.Image = Properties.Resources.avatar;
+
             if (c.Apelido != "")
                 Apelido = c.Apelido;
             else
@@ -38,11 +46,15 @@ namespace SchedBrains.View
             else
                 Telefone = "";
 
-
             if (c.DataNascimento != null)
                 DataNascimento = c.DataNascimento.Value.ToString().Substring(0, 10);
             else
                 DataNascimento = "";
+
+            menuFavorito = "Favoritar";
+            if (c.Favorito)
+                menuFavorito = "Desfavoritar";
+            mnuFavorito.Text = menuFavorito;
         }
 
         public int IdContato { get; set; }
@@ -67,11 +79,7 @@ namespace SchedBrains.View
             set { lblEmail.Text = value; }
         }
 
-        /*public string Imagem
-        {
-            get { return lblImagem.Text; }
-            set { lblImagem.Text = value; }
-        }*/
+        public string? Imagem { get; set; }
 
         public string Telefone
         {
@@ -85,19 +93,32 @@ namespace SchedBrains.View
             set { lblDataNascimento.Text = value; }
         }
 
+        public string menuFavorito { get; set; }
+
         private void mnuEditar_Click(object sender, EventArgs e)
         {
-
+            frmContato.editarContato(IdContato, this);
         }
 
         private void mnuFavorito_Click(object sender, EventArgs e)
         {
-
+            DialogResult dr;
+            using (DialogCenteringService centeringService = new DialogCenteringService(frmContato)) // center message box
+                dr = MessageBox.Show("Tem certeza que deseja " + menuFavorito.ToLower() + " esta tarefa?", "SchedBrains", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (dr == DialogResult.OK)
+                frmContato.favoritarContato(IdContato, this);
         }
 
         private void mnuExcluir_Click(object sender, EventArgs e)
         {
-
+            DialogResult dr;
+            using (DialogCenteringService centeringService = new DialogCenteringService(frmContato)) // center message box
+                dr = MessageBox.Show("Tem certeza de que deseja excluir este contato?", "SchedBrains", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (dr == DialogResult.OK)
+            {
+                frmContato.excluirContato(IdContato);
+                Parent.Controls.Remove(this);
+            }
         }
     }
 }

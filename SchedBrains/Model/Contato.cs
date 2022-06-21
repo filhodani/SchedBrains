@@ -30,7 +30,7 @@ namespace SchedBrains.Model
         [MaxLength(50)]
         public string? Email { get; set; }
 
-        [MaxLength(50)]
+        //[MaxLength(50)]
         public string? Imagem { get; set; }
 
         [MaxLength(15)]

@@ -18,6 +18,7 @@ namespace SchedBrains.View
         public List<Contato> listaContatos = new List<Contato>();
         public Contato? ContatoAtual = null;
         public UscContato UscContatoAtual = null;
+        public string imgPerfilAtual = null;
 
         public FrmContato()
         {
@@ -59,6 +60,25 @@ namespace SchedBrains.View
                     ucc.frmContato = this;
                     ucc.Carregar(contato);
                     flpContatos.Controls.Add(ucc);
+                }
+            }
+        }
+
+        private void pcbImgPerfil_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Imagens|*.jpg; *.jpeg; *.png; *.BMP;";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pcbImgPerfil.Image = new Bitmap(ofd.FileName);
+                    imgPerfilAtual = ofd.FileName;
+                }
+                catch (Exception)
+                {
+                    using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
+                        MessageBox.Show("Não foi possível carregar a foto", "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -106,9 +126,12 @@ namespace SchedBrains.View
                 string nome = txtNome.Text.Trim();
                 string sobrenome = txtSobrenome.Text.Trim();
                 string apelido = txtApelido.Text.Trim();
+
                 string telefone = txtTelefone.Text.Trim();
+                if (telefone == "(  )      -")
+                    telefone = "";
+
                 string email = txtEmail.Text.Trim();
-                string imagem = "";
 
                 DateTime? dataNascimento = null;
                 if (dtpDataNascimento.Checked)
@@ -130,7 +153,7 @@ namespace SchedBrains.View
                     if (listaContatos.Count > 0)
                         id += listaContatos[^1].Id;
 
-                    Contato ContatoAtual = new Contato(nome, sobrenome, apelido, email, dataNascimento, tipo, telefone, imagem);
+                    Contato ContatoAtual = new Contato(nome, sobrenome, apelido, email, dataNascimento, tipo, telefone, imgPerfilAtual);
                     listaContatos.Add(ContatoAtual);
 
                     ContatoController.Adicionar(ContatoAtual);
@@ -149,7 +172,7 @@ namespace SchedBrains.View
                     ContatoAtual.DataNascimento = dataNascimento;
                     ContatoAtual.Tipo = tipo;
                     ContatoAtual.Telefone = telefone;
-                    ContatoAtual.Imagem = imagem;
+                    ContatoAtual.Imagem = imgPerfilAtual;
 
                     int i = listaContatos.FindIndex(contato => contato.Id == ContatoAtual.Id);
                     listaContatos[i] = ContatoAtual;
@@ -171,6 +194,8 @@ namespace SchedBrains.View
         public void limparFormulario()
         {
             txtNome.Text = txtSobrenome.Text = txtApelido.Text = txtTelefone.Text = txtEmail.Text = "";
+            pcbImgPerfil.Image = Properties.Resources.avatar;
+            imgPerfilAtual = null;
             dtpDataNascimento.Value = DateTime.Now;
             dtpDataNascimento.Checked = true;
             cboTipo.SelectedIndex = 0;
@@ -181,6 +206,67 @@ namespace SchedBrains.View
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparFormulario();
+        }
+
+        public void editarContato(int idContato, UscContato uscContatoAtual)
+        {
+            ContatoAtual = listaContatos.FirstOrDefault(contato => contato.Id == idContato);
+            UscContatoAtual = uscContatoAtual;
+
+            txtNome.Text = ContatoAtual.Nome.ToString();
+            txtSobrenome.Text = ContatoAtual.Sobrenome.ToString();
+            txtApelido.Text = ContatoAtual.Apelido.ToString();
+            txtTelefone.Text = ContatoAtual.Telefone.ToString();
+            txtEmail.Text = ContatoAtual.Email.ToString();
+
+            if (ContatoAtual.Imagem != null && File.Exists(ContatoAtual.Imagem))
+                pcbImgPerfil.Image = new Bitmap(ContatoAtual.Imagem);
+            else
+                pcbImgPerfil.Image = Properties.Resources.avatar;
+
+            if (ContatoAtual.DataNascimento != null)
+                dtpDataNascimento.Value = ContatoAtual.DataNascimento.Value;
+            else
+            {
+                dtpDataNascimento.Value = DateTime.Now;
+                dtpDataNascimento.Checked = false;
+            }
+
+            cboTipo.SelectedIndex = ((int)ContatoAtual.Tipo + 1);
+        }
+
+        public void favoritarContato(int idContato, UscContato uscContatoAtual)
+        {
+            ContatoAtual = listaContatos.FirstOrDefault(contato => contato.Id == idContato);
+            UscContatoAtual = uscContatoAtual;
+
+            ContatoAtual.AlterarFavorito();
+
+            string mensagem = "Contato desfavoritado!";
+            if (ContatoAtual.Favorito)
+                mensagem = "Contato favoritado!";
+
+            int i = listaContatos.FindIndex(contato => contato.Id == ContatoAtual.Id);
+            listaContatos[i] = ContatoAtual;
+
+            ContatoController.Atualizar(ContatoAtual);
+            UscContatoAtual.Carregar(ContatoAtual);
+
+            using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
+                MessageBox.Show(mensagem, "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            limparFormulario();
+            ContatoAtual = null;
+        }
+
+        public void excluirContato(int idContato)
+        {
+            ContatoAtual = listaContatos.FirstOrDefault(contato => contato.Id == idContato);
+            ContatoController.Excluir(ContatoAtual);
+
+            using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
+                MessageBox.Show("Contato excluído com sucesso!", "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            limparFormulario();
+            ContatoAtual = null;
         }
     }
 }

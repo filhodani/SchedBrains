@@ -39,7 +39,9 @@
             this.mnuEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavorito = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.pcbImgPerfil = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome
@@ -127,12 +129,23 @@
             this.mnuExcluir.Text = "Excluir";
             this.mnuExcluir.Click += new System.EventHandler(this.mnuExcluir_Click);
             // 
+            // pcbImgPerfil
+            // 
+            this.pcbImgPerfil.Image = global::SchedBrains.Properties.Resources.avatar;
+            this.pcbImgPerfil.Location = new System.Drawing.Point(81, 13);
+            this.pcbImgPerfil.Name = "pcbImgPerfil";
+            this.pcbImgPerfil.Size = new System.Drawing.Size(90, 90);
+            this.pcbImgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbImgPerfil.TabIndex = 6;
+            this.pcbImgPerfil.TabStop = false;
+            // 
             // UscContato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.pcbImgPerfil);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblApelido);
             this.Controls.Add(this.lblTelefone);
@@ -144,6 +157,7 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(252, 191);
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgPerfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +175,6 @@
         private ToolStripMenuItem mnuEditar;
         private ToolStripMenuItem mnuFavorito;
         private ToolStripMenuItem mnuExcluir;
+        private PictureBox pcbImgPerfil;
     }
 }

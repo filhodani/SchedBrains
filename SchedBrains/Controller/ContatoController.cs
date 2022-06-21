@@ -24,10 +24,10 @@ namespace SchedBrains.Controller
             if (contato.Sobrenome.Length > 50)
                 throw new Exception("Sobrenome muito grande!");
 
-            if (contato.Apelido.Length > 50)
+            if (contato.Apelido.Length > 10)
                 throw new Exception("Apelido muito grande!");
 
-            if (contato.Telefone.Length > 50)
+            if (contato.Telefone.Length > 15)
                 throw new Exception("Telefone muito grande!");
 
             if (contato.Email != null && contato.Email != "" && !(new Contato().EmailValido(contato.Email)))
@@ -92,7 +92,10 @@ namespace SchedBrains.Controller
 
         internal static List<Contato> Pesquisar(string busca, string tipo, bool favoritos)
         {
-            return dataContext.TBContato.Where(x => (x.Nome.Contains(busca) || x.Sobrenome.Contains(busca) || x.Apelido.Contains(busca) || x.Telefone.Contains(busca) || x.Email.Contains(busca)) && ((char)x.Tipo).ToString().Contains(tipo) && x.Favorito == favoritos).ToList();
+            if (favoritos)
+                return dataContext.TBContato.Where(x => (x.Nome.Contains(busca) || x.Sobrenome.Contains(busca) || x.Apelido.Contains(busca) || x.Telefone.Contains(busca) || x.Email.Contains(busca)) && ((char)x.Tipo).ToString().Contains(tipo) && x.Favorito == favoritos).ToList();
+            else
+                return dataContext.TBContato.Where(x => (x.Nome.Contains(busca) || x.Sobrenome.Contains(busca) || x.Apelido.Contains(busca) || x.Telefone.Contains(busca) || x.Email.Contains(busca)) && ((char)x.Tipo).ToString().Contains(tipo)).ToList();
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pcbImgPerfil = new System.Windows.Forms.PictureBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtApelido = new System.Windows.Forms.TextBox();
@@ -50,6 +51,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgPerfil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContato)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.splitContainer1.Panel1.Controls.Add(this.pcbImgPerfil);
             this.splitContainer1.Panel1.Controls.Add(this.txtEmail);
             this.splitContainer1.Panel1.Controls.Add(this.txtTelefone);
             this.splitContainer1.Panel1.Controls.Add(this.txtApelido);
@@ -85,6 +88,19 @@
             this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 5;
             // 
+            // pcbImgPerfil
+            // 
+            this.pcbImgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.pcbImgPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcbImgPerfil.Image = global::SchedBrains.Properties.Resources.avatar;
+            this.pcbImgPerfil.Location = new System.Drawing.Point(48, 162);
+            this.pcbImgPerfil.Name = "pcbImgPerfil";
+            this.pcbImgPerfil.Size = new System.Drawing.Size(130, 130);
+            this.pcbImgPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbImgPerfil.TabIndex = 10;
+            this.pcbImgPerfil.TabStop = false;
+            this.pcbImgPerfil.Click += new System.EventHandler(this.pcbImgPerfil_Click);
+            // 
             // txtEmail
             // 
             this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -94,7 +110,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "Email";
             this.txtEmail.Size = new System.Drawing.Size(197, 23);
-            this.txtEmail.TabIndex = 14;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtTelefone
             // 
@@ -104,18 +120,18 @@
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(197, 23);
-            this.txtTelefone.TabIndex = 13;
+            this.txtTelefone.TabIndex = 3;
             // 
             // txtApelido
             // 
             this.txtApelido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApelido.Location = new System.Drawing.Point(14, 70);
-            this.txtApelido.MaxLength = 50;
+            this.txtApelido.MaxLength = 10;
             this.txtApelido.Name = "txtApelido";
             this.txtApelido.PlaceholderText = "Apelido";
             this.txtApelido.Size = new System.Drawing.Size(197, 23);
-            this.txtApelido.TabIndex = 12;
+            this.txtApelido.TabIndex = 2;
             // 
             // txtSobrenome
             // 
@@ -126,7 +142,7 @@
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.PlaceholderText = "Sobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(197, 23);
-            this.txtSobrenome.TabIndex = 11;
+            this.txtSobrenome.TabIndex = 1;
             // 
             // btnLimpar
             // 
@@ -134,7 +150,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(116, 377);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(95, 23);
-            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.TabIndex = 9;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -146,7 +162,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(14, 377);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(96, 23);
-            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -164,7 +180,7 @@
             this.cboTipo.Location = new System.Drawing.Point(14, 348);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(197, 23);
-            this.cboTipo.TabIndex = 6;
+            this.cboTipo.TabIndex = 7;
             // 
             // lblDataNascimento
             // 
@@ -187,7 +203,7 @@
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.ShowCheckBox = true;
             this.dtpDataNascimento.Size = new System.Drawing.Size(197, 23);
-            this.dtpDataNascimento.TabIndex = 2;
+            this.dtpDataNascimento.TabIndex = 6;
             // 
             // txtNome
             // 
@@ -223,7 +239,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(662, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(110, 23);
-            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -251,15 +267,16 @@
             this.cboTipoBusca.Location = new System.Drawing.Point(461, 12);
             this.cboTipoBusca.Name = "cboTipoBusca";
             this.cboTipoBusca.Size = new System.Drawing.Size(115, 23);
-            this.cboTipoBusca.TabIndex = 2;
+            this.cboTipoBusca.TabIndex = 1;
             // 
             // chbFavoritos
             // 
+            this.chbFavoritos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chbFavoritos.AutoSize = true;
             this.chbFavoritos.Location = new System.Drawing.Point(582, 14);
             this.chbFavoritos.Name = "chbFavoritos";
             this.chbFavoritos.Size = new System.Drawing.Size(74, 19);
-            this.chbFavoritos.TabIndex = 6;
+            this.chbFavoritos.TabIndex = 2;
             this.chbFavoritos.Text = "Favoritos";
             this.chbFavoritos.UseVisualStyleBackColor = true;
             // 
@@ -284,6 +301,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgPerfil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContato)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -309,5 +327,6 @@
         private TextBox txtApelido;
         private TextBox txtEmail;
         private CheckBox chbFavoritos;
+        private PictureBox pcbImgPerfil;
     }
 }
