@@ -28,7 +28,7 @@ namespace SchedBrains.View
 
         private void FrmEvento_Load(object sender, EventArgs e)
         {
-            cboPeriodicidade.SelectedIndex = 0;
+            cboSituacao.SelectedIndex = cboPeriodicidadeBusca.SelectedIndex = cboPeriodicidade.SelectedIndex = 0;
 
             listaEventos = EventoController.Listar();
             if (listaEventos.Count > 0)
@@ -39,6 +39,32 @@ namespace SchedBrains.View
                     uce.frmEvento = this;
                     uce.Carregar(evento);
                     flpEventos.Controls.Add(uce);
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string situacao = "";
+            string periodicidade = "";
+
+            if (cboSituacao.SelectedIndex != 0)
+                situacao = (cboSituacao.SelectedIndex - 1).ToString();
+
+            if (cboPeriodicidadeBusca.SelectedIndex != 0)
+                periodicidade = (cboPeriodicidadeBusca.SelectedIndex - 1).ToString();
+
+            listaEventos = EventoController.Pesquisar(txtTrecho.Text.Trim(), situacao, periodicidade, dtpPeriodo.Checked, dtpPeriodo.Value);
+
+            flpEventos.Controls.Clear();
+            if (listaEventos.Count > 0)
+            {
+                foreach (Evento tarefa in listaEventos)
+                {
+                    UscEvento uct = new UscEvento();
+                    uct.frmEvento = this;
+                    uct.Carregar(tarefa);
+                    flpEventos.Controls.Add(uct);
                 }
             }
         }

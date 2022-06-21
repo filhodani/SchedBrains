@@ -52,12 +52,12 @@ namespace SchedBrains.Controller
             return dataContext.TBEvento.ToList();
         }
 
-        /*internal static List<Evento> Pesquisar(string trecho, string situacao, string prioridade, bool temDataConclusao, DateTime dataConclusao)
+        internal static List<Evento> Pesquisar(string trecho, string situacao, string periodicidade, bool periodo, DateTime dataPeriodo)
         {
-            if (temDataConclusao)
-                return dataContext.TBEvento.Where(x => (x.Titulo.Contains(trecho) || x.Descricao.Contains(trecho)) && ((char)x.Situacao).ToString().Contains(situacao) && ((char)x.Prioridade).ToString().Contains(prioridade) && x.DataMaximaConclusao != null && x.DataMaximaConclusao.Value.Day == dataConclusao.Day && x.DataMaximaConclusao.Value.Month == dataConclusao.Month && x.DataMaximaConclusao.Value.Year == dataConclusao.Year).ToList();
+            if (periodo)
+                return dataContext.TBEvento.Where(x => (x.Titulo.Contains(trecho) || x.Local.Contains(trecho) || x.Descricao.Contains(trecho)) && ((char)x.Situacao).ToString().Contains(situacao) && ((char)x.Periodicidade).ToString().Contains(periodicidade) && (x.DataInicio != null && x.DataInicio.Day == dataPeriodo.Day && x.DataInicio.Month == dataPeriodo.Month && x.DataInicio.Year == dataPeriodo.Year || x.DataTermino != null && x.DataTermino.Day == dataPeriodo.Day && x.DataTermino.Month == dataPeriodo.Month && x.DataTermino.Year == dataPeriodo.Year)).ToList();
             else
-                return dataContext.TBEvento.Where(x => (x.Titulo.Contains(trecho) || x.Descricao.Contains(trecho)) && ((char)x.Situacao).ToString().Contains(situacao) && ((char)x.Prioridade).ToString().Contains(prioridade)).ToList();
-        }*/
+                return dataContext.TBEvento.Where(x => (x.Titulo.Contains(trecho) || x.Local.Contains(trecho) || x.Descricao.Contains(trecho)) && ((char)x.Situacao).ToString().Contains(situacao) && ((char)x.Periodicidade).ToString().Contains(periodicidade)).ToList();
+        }
     }
 }

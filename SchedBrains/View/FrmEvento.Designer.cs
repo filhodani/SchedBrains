@@ -46,9 +46,9 @@
             this.errorProviderEvento = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtTrecho = new System.Windows.Forms.TextBox();
-            this.cboPrioridadeBusca = new System.Windows.Forms.ComboBox();
-            this.dtpDataConclusao = new System.Windows.Forms.DateTimePicker();
             this.cboSituacao = new System.Windows.Forms.ComboBox();
+            this.dtpPeriodo = new System.Windows.Forms.DateTimePicker();
+            this.cboPeriodicidadeBusca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -263,6 +263,7 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtTrecho
             // 
@@ -275,46 +276,51 @@
             this.txtTrecho.Size = new System.Drawing.Size(279, 23);
             this.txtTrecho.TabIndex = 0;
             // 
-            // cboPrioridadeBusca
-            // 
-            this.cboPrioridadeBusca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPrioridadeBusca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPrioridadeBusca.FormattingEnabled = true;
-            this.cboPrioridadeBusca.Items.AddRange(new object[] {
-            "Prioridade",
-            "Alta",
-            "Média",
-            "Baixa"});
-            this.cboPrioridadeBusca.Location = new System.Drawing.Point(420, 12);
-            this.cboPrioridadeBusca.Name = "cboPrioridadeBusca";
-            this.cboPrioridadeBusca.Size = new System.Drawing.Size(115, 23);
-            this.cboPrioridadeBusca.TabIndex = 2;
-            // 
-            // dtpDataConclusao
-            // 
-            this.dtpDataConclusao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDataConclusao.Checked = false;
-            this.dtpDataConclusao.CustomFormat = "dd/MM/yyyy";
-            this.dtpDataConclusao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataConclusao.Location = new System.Drawing.Point(541, 12);
-            this.dtpDataConclusao.Name = "dtpDataConclusao";
-            this.dtpDataConclusao.ShowCheckBox = true;
-            this.dtpDataConclusao.Size = new System.Drawing.Size(115, 23);
-            this.dtpDataConclusao.TabIndex = 3;
-            // 
             // cboSituacao
             // 
             this.cboSituacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSituacao.FormattingEnabled = true;
             this.cboSituacao.Items.AddRange(new object[] {
-            "Situação",
+            "Situacao",
+            "Aguardando",
+            "Em andamento",
             "Pendente",
             "Concluído"});
             this.cboSituacao.Location = new System.Drawing.Point(299, 12);
             this.cboSituacao.Name = "cboSituacao";
             this.cboSituacao.Size = new System.Drawing.Size(115, 23);
             this.cboSituacao.TabIndex = 1;
+            // 
+            // dtpPeriodo
+            // 
+            this.dtpPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpPeriodo.Checked = false;
+            this.dtpPeriodo.CustomFormat = "dd/MM/yyyy";
+            this.dtpPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpPeriodo.Location = new System.Drawing.Point(541, 12);
+            this.dtpPeriodo.Name = "dtpPeriodo";
+            this.dtpPeriodo.ShowCheckBox = true;
+            this.dtpPeriodo.Size = new System.Drawing.Size(115, 23);
+            this.dtpPeriodo.TabIndex = 3;
+            // 
+            // cboPeriodicidadeBusca
+            // 
+            this.cboPeriodicidadeBusca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPeriodicidadeBusca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPeriodicidadeBusca.FormattingEnabled = true;
+            this.cboPeriodicidadeBusca.Items.AddRange(new object[] {
+            "Periodicidade",
+            "Todos os dias",
+            "A cada semana",
+            "A cada 2 semanas",
+            "A cada mês",
+            "A cada ano",
+            "Uma vez"});
+            this.cboPeriodicidadeBusca.Location = new System.Drawing.Point(420, 12);
+            this.cboPeriodicidadeBusca.Name = "cboPeriodicidadeBusca";
+            this.cboPeriodicidadeBusca.Size = new System.Drawing.Size(115, 23);
+            this.cboPeriodicidadeBusca.TabIndex = 3;
             // 
             // FrmEvento
             // 
@@ -323,8 +329,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(784, 501);
             this.Controls.Add(this.cboSituacao);
-            this.Controls.Add(this.dtpDataConclusao);
-            this.Controls.Add(this.cboPrioridadeBusca);
+            this.Controls.Add(this.cboPeriodicidadeBusca);
+            this.Controls.Add(this.dtpPeriodo);
             this.Controls.Add(this.txtTrecho);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.splitContainer1);
@@ -355,12 +361,12 @@
         private Button btnSalvar;
         private ErrorProvider errorProviderEvento;
         private FlowLayoutPanel flpEventos;
-        private DateTimePicker dtpDataConclusao;
-        private ComboBox cboPrioridadeBusca;
+        private DateTimePicker dtpPeriodo;
+        private ComboBox cboSituacao;
         private TextBox txtTrecho;
         private Button btnBuscar;
         private Button btnLimpar;
-        private ComboBox cboSituacao;
+        private ComboBox cboPeriodicidadeBusca;
         private ComboBox cboPeriodicidade;
         private Button btnContatos;
         private TextBox txtLocal;
