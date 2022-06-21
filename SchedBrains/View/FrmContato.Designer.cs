@@ -80,8 +80,8 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.splitContainer1.Panel2.Controls.Add(this.flpContatos);
-            this.splitContainer1.Panel2MinSize = 500;
-            this.splitContainer1.Size = new System.Drawing.Size(785, 452);
+            this.splitContainer1.Panel2MinSize = 554;
+            this.splitContainer1.Size = new System.Drawing.Size(785, 412);
             this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 5;
             // 
@@ -131,7 +131,7 @@
             // btnLimpar
             // 
             this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpar.Location = new System.Drawing.Point(116, 417);
+            this.btnLimpar.Location = new System.Drawing.Point(116, 377);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(95, 23);
             this.btnLimpar.TabIndex = 8;
@@ -143,7 +143,7 @@
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(14, 417);
+            this.btnSalvar.Location = new System.Drawing.Point(14, 377);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(96, 23);
             this.btnSalvar.TabIndex = 7;
@@ -161,7 +161,7 @@
             "Tipo",
             "Profissional",
             "Pessoal"});
-            this.cboTipo.Location = new System.Drawing.Point(14, 388);
+            this.cboTipo.Location = new System.Drawing.Point(14, 348);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(197, 23);
             this.cboTipo.TabIndex = 6;
@@ -171,7 +171,7 @@
             this.lblDataNascimento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataNascimento.AutoSize = true;
-            this.lblDataNascimento.Location = new System.Drawing.Point(14, 341);
+            this.lblDataNascimento.Location = new System.Drawing.Point(14, 301);
             this.lblDataNascimento.Name = "lblDataNascimento";
             this.lblDataNascimento.Size = new System.Drawing.Size(114, 15);
             this.lblDataNascimento.TabIndex = 3;
@@ -183,7 +183,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataNascimento.CustomFormat = "dd/MM/yyyy";
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataNascimento.Location = new System.Drawing.Point(14, 359);
+            this.dtpDataNascimento.Location = new System.Drawing.Point(14, 319);
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.ShowCheckBox = true;
             this.dtpDataNascimento.Size = new System.Drawing.Size(197, 23);
@@ -209,7 +209,7 @@
             this.flpContatos.Margin = new System.Windows.Forms.Padding(0);
             this.flpContatos.Name = "flpContatos";
             this.flpContatos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.flpContatos.Size = new System.Drawing.Size(554, 452);
+            this.flpContatos.Size = new System.Drawing.Size(554, 412);
             this.flpContatos.TabIndex = 0;
             // 
             // errorProviderContato
@@ -268,7 +268,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(784, 501);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.chbFavoritos);
             this.Controls.Add(this.cboTipoBusca);
             this.Controls.Add(this.txtBusca);

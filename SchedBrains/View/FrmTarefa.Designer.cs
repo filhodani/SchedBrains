@@ -300,7 +300,7 @@
             this.Controls.Add(this.txtTrecho);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 540);
             this.Name = "FrmTarefa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tarefas";

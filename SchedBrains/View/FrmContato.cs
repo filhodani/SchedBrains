@@ -26,7 +26,19 @@ namespace SchedBrains.View
 
         private void FrmContato_Load(object sender, EventArgs e)
         {
-            cboTipo.SelectedIndex = 0;
+            cboTipoBusca.SelectedIndex = cboTipo.SelectedIndex = 0;
+
+            listaContatos = ContatoController.Listar();
+            if (listaContatos.Count > 0)
+            {
+                foreach (Contato contato in listaContatos)
+                {
+                    UscContato ucc = new UscContato();
+                    ucc.frmContato = this;
+                    ucc.Carregar(contato);
+                    flpContatos.Controls.Add(ucc);
+                }
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -36,19 +48,19 @@ namespace SchedBrains.View
             if (cboTipoBusca.SelectedIndex != 0)
                 tipo = (cboTipoBusca.SelectedIndex-1).ToString();
 
-            /*listaContatos = ContatoController.Pesquisar(txtBusca.Text.Trim(), tipo, chbFavoritos.Checked);
+            listaContatos = ContatoController.Pesquisar(txtBusca.Text.Trim(), tipo, chbFavoritos.Checked);
 
             flpContatos.Controls.Clear();
             if (listaContatos.Count > 0)
             {
-                foreach (Contato tarefa in listaContatos)
+                foreach (Contato contato in listaContatos)
                 {
-                    UscContato uct = new UscContato();
-                    uct.frmContato = this;
-                    uct.Carregar(tarefa);
-                    flpContatos.Controls.Add(uct);
+                    UscContato ucc = new UscContato();
+                    ucc.frmContato = this;
+                    ucc.Carregar(contato);
+                    flpContatos.Controls.Add(ucc);
                 }
-            }*/
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -109,10 +121,54 @@ namespace SchedBrains.View
                 TipoContato tipo = TipoContato.Profissional;
                 if (cboTipo.SelectedItem.ToString() == "Pessoal")
                     tipo = TipoContato.Pessoal;
+
+                string mensagem = "Contato cadastrado com sucesso!";
+
+                if (ContatoAtual == null)
+                {
+                    int id = 1;
+                    if (listaContatos.Count > 0)
+                        id += listaContatos[^1].Id;
+
+                    Contato ContatoAtual = new Contato(nome, sobrenome, apelido, email, dataNascimento, tipo, telefone, imagem);
+                    listaContatos.Add(ContatoAtual);
+
+                    ContatoController.Adicionar(ContatoAtual);
+
+                    UscContato ucc = new UscContato();
+                    ucc.frmContato = this;
+                    ucc.Carregar(ContatoAtual);
+                    flpContatos.Controls.Add(ucc);
+                }
+                else
+                {
+                    ContatoAtual.Nome = nome;
+                    ContatoAtual.Sobrenome = sobrenome;
+                    ContatoAtual.Apelido = apelido;
+                    ContatoAtual.Email = email;
+                    ContatoAtual.DataNascimento = dataNascimento;
+                    ContatoAtual.Tipo = tipo;
+                    ContatoAtual.Telefone = telefone;
+                    ContatoAtual.Imagem = imagem;
+
+                    int i = listaContatos.FindIndex(contato => contato.Id == ContatoAtual.Id);
+                    listaContatos[i] = ContatoAtual;
+
+                    ContatoController.Atualizar(ContatoAtual);
+
+                    UscContatoAtual.Carregar(ContatoAtual);
+
+                    mensagem = "Contato alterado com sucesso!";
+                }
+
+                using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
+                    MessageBox.Show(mensagem, "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limparFormulario();
+                ContatoAtual = null;
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
+        public void limparFormulario()
         {
             txtNome.Text = txtSobrenome.Text = txtApelido.Text = txtTelefone.Text = txtEmail.Text = "";
             dtpDataNascimento.Value = DateTime.Now;
@@ -120,6 +176,11 @@ namespace SchedBrains.View
             cboTipo.SelectedIndex = 0;
             txtNome.Focus();
             errorProviderContato.Clear();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparFormulario();
         }
     }
 }

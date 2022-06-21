@@ -24,7 +24,7 @@ namespace SchedBrains.Model
         [MaxLength(50)]
         public string Sobrenome { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(10)]
         public string? Apelido { get; set; }
 
         [MaxLength(50)]
@@ -33,7 +33,7 @@ namespace SchedBrains.Model
         [MaxLength(50)]
         public string? Imagem { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(15)]
         public string? Telefone { get; set; }
 
         [DataType(DataType.Date)]
