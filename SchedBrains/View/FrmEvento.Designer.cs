@@ -30,18 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnAnexos = new System.Windows.Forms.Button();
+            this.pcbImgEvento = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpDataTermino = new System.Windows.Forms.DateTimePicker();
+            this.txtLocal = new System.Windows.Forms.TextBox();
             this.btnContatos = new System.Windows.Forms.Button();
-            this.cboEvento = new System.Windows.Forms.ComboBox();
+            this.cboPeriodicidade = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.cboPrioridade = new System.Windows.Forms.ComboBox();
-            this.lblDataMaximaConclusao = new System.Windows.Forms.Label();
-            this.dtpDataMaximaConclusao = new System.Windows.Forms.DateTimePicker();
+            this.lblDataInicio = new System.Windows.Forms.Label();
+            this.dtpDataInicio = new System.Windows.Forms.DateTimePicker();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.flpTarefas = new System.Windows.Forms.FlowLayoutPanel();
-            this.errorProviderTarefa = new System.Windows.Forms.ErrorProvider(this.components);
+            this.flpEventos = new System.Windows.Forms.FlowLayoutPanel();
+            this.errorProviderEvento = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtTrecho = new System.Windows.Forms.TextBox();
             this.cboPrioridadeBusca = new System.Windows.Forms.ComboBox();
@@ -51,13 +53,14 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTarefa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgEvento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEvento)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(2, 49);
             this.splitContainer1.Name = "splitContainer1";
@@ -65,163 +68,191 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.splitContainer1.Panel1.Controls.Add(this.btnAnexos);
+            this.splitContainer1.Panel1.Controls.Add(this.pcbImgEvento);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.dtpDataTermino);
+            this.splitContainer1.Panel1.Controls.Add(this.txtLocal);
             this.splitContainer1.Panel1.Controls.Add(this.btnContatos);
-            this.splitContainer1.Panel1.Controls.Add(this.cboEvento);
+            this.splitContainer1.Panel1.Controls.Add(this.cboPeriodicidade);
             this.splitContainer1.Panel1.Controls.Add(this.btnLimpar);
             this.splitContainer1.Panel1.Controls.Add(this.btnSalvar);
-            this.splitContainer1.Panel1.Controls.Add(this.cboPrioridade);
-            this.splitContainer1.Panel1.Controls.Add(this.lblDataMaximaConclusao);
-            this.splitContainer1.Panel1.Controls.Add(this.dtpDataMaximaConclusao);
+            this.splitContainer1.Panel1.Controls.Add(this.lblDataInicio);
+            this.splitContainer1.Panel1.Controls.Add(this.dtpDataInicio);
             this.splitContainer1.Panel1.Controls.Add(this.txtDescricao);
             this.splitContainer1.Panel1.Controls.Add(this.txtTitulo);
-            this.splitContainer1.Panel1MinSize = 280;
+            this.splitContainer1.Panel1MinSize = 290;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.splitContainer1.Panel2.Controls.Add(this.flpTarefas);
-            this.splitContainer1.Panel2MinSize = 500;
+            this.splitContainer1.Panel2.Controls.Add(this.flpEventos);
+            this.splitContainer1.Panel2MinSize = 480;
             this.splitContainer1.Size = new System.Drawing.Size(784, 450);
-            this.splitContainer1.SplitterDistance = 280;
+            this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 5;
             // 
-            // btnAnexos
+            // pcbImgEvento
             // 
-            this.btnAnexos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.pcbImgEvento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnexos.Location = new System.Drawing.Point(13, 330);
-            this.btnAnexos.Name = "btnAnexos";
-            this.btnAnexos.Size = new System.Drawing.Size(123, 23);
-            this.btnAnexos.TabIndex = 10;
-            this.btnAnexos.Text = "Anexos";
-            this.btnAnexos.UseVisualStyleBackColor = true;
+            this.pcbImgEvento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcbImgEvento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcbImgEvento.Image = global::SchedBrains.Properties.Resources.landscape;
+            this.pcbImgEvento.Location = new System.Drawing.Point(12, 179);
+            this.pcbImgEvento.Name = "pcbImgEvento";
+            this.pcbImgEvento.Size = new System.Drawing.Size(265, 130);
+            this.pcbImgEvento.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbImgEvento.TabIndex = 14;
+            this.pcbImgEvento.TabStop = false;
+            this.pcbImgEvento.Click += new System.EventHandler(this.pcbImgEvento_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(147, 312);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Data Término";
+            // 
+            // dtpDataTermino
+            // 
+            this.dtpDataTermino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataTermino.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpDataTermino.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDataTermino.Location = new System.Drawing.Point(147, 330);
+            this.dtpDataTermino.Name = "dtpDataTermino";
+            this.dtpDataTermino.Size = new System.Drawing.Size(130, 23);
+            this.dtpDataTermino.TabIndex = 5;
+            // 
+            // txtLocal
+            // 
+            this.txtLocal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLocal.Location = new System.Drawing.Point(12, 41);
+            this.txtLocal.MaxLength = 50;
+            this.txtLocal.Name = "txtLocal";
+            this.txtLocal.PlaceholderText = "Local";
+            this.txtLocal.Size = new System.Drawing.Size(265, 23);
+            this.txtLocal.TabIndex = 1;
             // 
             // btnContatos
             // 
-            this.btnContatos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnContatos.Location = new System.Drawing.Point(142, 330);
+            this.btnContatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnContatos.Location = new System.Drawing.Point(12, 388);
             this.btnContatos.Name = "btnContatos";
-            this.btnContatos.Size = new System.Drawing.Size(123, 23);
-            this.btnContatos.TabIndex = 9;
+            this.btnContatos.Size = new System.Drawing.Size(265, 23);
+            this.btnContatos.TabIndex = 7;
             this.btnContatos.Text = "Contatos";
             this.btnContatos.UseVisualStyleBackColor = true;
             // 
-            // cboEvento
+            // cboPeriodicidade
             // 
-            this.cboEvento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.cboPeriodicidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboEvento.DisplayMember = "Titulo";
-            this.cboEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEvento.FormattingEnabled = true;
-            this.cboEvento.Items.AddRange(new object[] {
-            "Evento"});
-            this.cboEvento.Location = new System.Drawing.Point(12, 359);
-            this.cboEvento.Name = "cboEvento";
-            this.cboEvento.Size = new System.Drawing.Size(253, 23);
-            this.cboEvento.TabIndex = 5;
-            this.cboEvento.ValueMember = "Id";
+            this.cboPeriodicidade.DisplayMember = "Titulo";
+            this.cboPeriodicidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPeriodicidade.FormattingEnabled = true;
+            this.cboPeriodicidade.Items.AddRange(new object[] {
+            "Periodicidade",
+            "Todos os dias",
+            "A cada semana",
+            "A cada 2 semanas",
+            "A cada mês",
+            "A cada ano",
+            "Uma vez"});
+            this.cboPeriodicidade.Location = new System.Drawing.Point(12, 359);
+            this.cboPeriodicidade.Name = "cboPeriodicidade";
+            this.cboPeriodicidade.Size = new System.Drawing.Size(265, 23);
+            this.cboPeriodicidade.TabIndex = 6;
+            this.cboPeriodicidade.ValueMember = "Id";
             // 
             // btnLimpar
             // 
             this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpar.Location = new System.Drawing.Point(142, 417);
+            this.btnLimpar.Location = new System.Drawing.Point(147, 417);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(123, 23);
-            this.btnLimpar.TabIndex = 8;
+            this.btnLimpar.Size = new System.Drawing.Size(130, 23);
+            this.btnLimpar.TabIndex = 9;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Location = new System.Drawing.Point(12, 417);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(123, 23);
-            this.btnSalvar.TabIndex = 7;
+            this.btnSalvar.Size = new System.Drawing.Size(129, 23);
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // cboPrioridade
+            // lblDataInicio
             // 
-            this.cboPrioridade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.lblDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDataInicio.AutoSize = true;
+            this.lblDataInicio.Location = new System.Drawing.Point(12, 312);
+            this.lblDataInicio.Name = "lblDataInicio";
+            this.lblDataInicio.Size = new System.Drawing.Size(63, 15);
+            this.lblDataInicio.TabIndex = 3;
+            this.lblDataInicio.Text = "Data Início";
+            // 
+            // dtpDataInicio
+            // 
+            this.dtpDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPrioridade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPrioridade.FormattingEnabled = true;
-            this.cboPrioridade.Items.AddRange(new object[] {
-            "Prioridade",
-            "Alta",
-            "Média",
-            "Baixa"});
-            this.cboPrioridade.Location = new System.Drawing.Point(12, 388);
-            this.cboPrioridade.Name = "cboPrioridade";
-            this.cboPrioridade.Size = new System.Drawing.Size(253, 23);
-            this.cboPrioridade.TabIndex = 6;
-            // 
-            // lblDataMaximaConclusao
-            // 
-            this.lblDataMaximaConclusao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDataMaximaConclusao.AutoSize = true;
-            this.lblDataMaximaConclusao.Location = new System.Drawing.Point(12, 283);
-            this.lblDataMaximaConclusao.Name = "lblDataMaximaConclusao";
-            this.lblDataMaximaConclusao.Size = new System.Drawing.Size(150, 15);
-            this.lblDataMaximaConclusao.TabIndex = 3;
-            this.lblDataMaximaConclusao.Text = "Data máxima de conclusão";
-            // 
-            // dtpDataMaximaConclusao
-            // 
-            this.dtpDataMaximaConclusao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDataMaximaConclusao.CustomFormat = "dd/MM/yyyy HH:mm";
-            this.dtpDataMaximaConclusao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataMaximaConclusao.Location = new System.Drawing.Point(12, 301);
-            this.dtpDataMaximaConclusao.Name = "dtpDataMaximaConclusao";
-            this.dtpDataMaximaConclusao.ShowCheckBox = true;
-            this.dtpDataMaximaConclusao.Size = new System.Drawing.Size(253, 23);
-            this.dtpDataMaximaConclusao.TabIndex = 2;
+            this.dtpDataInicio.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDataInicio.Location = new System.Drawing.Point(12, 330);
+            this.dtpDataInicio.Name = "dtpDataInicio";
+            this.dtpDataInicio.Size = new System.Drawing.Size(129, 23);
+            this.dtpDataInicio.TabIndex = 4;
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescricao.Location = new System.Drawing.Point(12, 41);
-            this.txtDescricao.MaxLength = 2130;
+            this.txtDescricao.Location = new System.Drawing.Point(12, 70);
+            this.txtDescricao.MaxLength = 250;
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.PlaceholderText = "Descrição";
-            this.txtDescricao.Size = new System.Drawing.Size(253, 235);
-            this.txtDescricao.TabIndex = 1;
+            this.txtDescricao.Size = new System.Drawing.Size(265, 100);
+            this.txtDescricao.TabIndex = 2;
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitulo.Location = new System.Drawing.Point(12, 12);
-            this.txtTitulo.MaxLength = 26;
+            this.txtTitulo.MaxLength = 50;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.PlaceholderText = "Título";
-            this.txtTitulo.Size = new System.Drawing.Size(253, 23);
+            this.txtTitulo.Size = new System.Drawing.Size(265, 23);
             this.txtTitulo.TabIndex = 0;
             // 
-            // flpTarefas
+            // flpEventos
             // 
-            this.flpTarefas.AutoScroll = true;
-            this.flpTarefas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.flpTarefas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpTarefas.Location = new System.Drawing.Point(0, 0);
-            this.flpTarefas.Margin = new System.Windows.Forms.Padding(0);
-            this.flpTarefas.Name = "flpTarefas";
-            this.flpTarefas.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.flpTarefas.Size = new System.Drawing.Size(500, 450);
-            this.flpTarefas.TabIndex = 0;
+            this.flpEventos.AutoScroll = true;
+            this.flpEventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.flpEventos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpEventos.Location = new System.Drawing.Point(0, 0);
+            this.flpEventos.Margin = new System.Windows.Forms.Padding(0);
+            this.flpEventos.Name = "flpEventos";
+            this.flpEventos.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.flpEventos.Size = new System.Drawing.Size(480, 450);
+            this.flpEventos.TabIndex = 0;
             // 
-            // errorProviderTarefa
+            // errorProviderEvento
             // 
-            this.errorProviderTarefa.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProviderTarefa.ContainerControl = this;
+            this.errorProviderEvento.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderEvento.ContainerControl = this;
             // 
             // btnBuscar
             // 
@@ -235,12 +266,12 @@
             // 
             // txtTrecho
             // 
-            this.txtTrecho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTrecho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTrecho.Location = new System.Drawing.Point(14, 12);
             this.txtTrecho.MaxLength = 26;
             this.txtTrecho.Name = "txtTrecho";
-            this.txtTrecho.PlaceholderText = "Trecho do título ou descrição";
+            this.txtTrecho.PlaceholderText = "Trecho do título, local ou descrição";
             this.txtTrecho.Size = new System.Drawing.Size(279, 23);
             this.txtTrecho.TabIndex = 0;
             // 
@@ -285,7 +316,7 @@
             this.cboSituacao.Size = new System.Drawing.Size(115, 23);
             this.cboSituacao.TabIndex = 1;
             // 
-            // FrmTarefa
+            // FrmEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -297,18 +328,21 @@
             this.Controls.Add(this.txtTrecho);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
-            this.Name = "FrmTarefa";
+            this.MinimumSize = new System.Drawing.Size(800, 540);
+            this.Name = "FrmEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tarefas";
+            this.Text = "Eventos";
+            this.Load += new System.EventHandler(this.FrmEvento_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTarefa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImgEvento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderEvento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -316,20 +350,22 @@
         private SplitContainer splitContainer1;
         private TextBox txtTitulo;
         private TextBox txtDescricao;
-        private DateTimePicker dtpDataMaximaConclusao;
-        private Label lblDataMaximaConclusao;
-        private ComboBox cboPrioridade;
+        private DateTimePicker dtpDataInicio;
+        private Label lblDataInicio;
         private Button btnSalvar;
-        private ErrorProvider errorProviderTarefa;
-        private FlowLayoutPanel flpTarefas;
+        private ErrorProvider errorProviderEvento;
+        private FlowLayoutPanel flpEventos;
         private DateTimePicker dtpDataConclusao;
         private ComboBox cboPrioridadeBusca;
         private TextBox txtTrecho;
         private Button btnBuscar;
         private Button btnLimpar;
         private ComboBox cboSituacao;
-        private ComboBox cboEvento;
-        private Button btnAnexos;
+        private ComboBox cboPeriodicidade;
         private Button btnContatos;
+        private TextBox txtLocal;
+        private DateTimePicker dtpDataTermino;
+        private Label label1;
+        private PictureBox pcbImgEvento;
     }
 }

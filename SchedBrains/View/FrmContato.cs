@@ -78,7 +78,7 @@ namespace SchedBrains.View
                 catch (Exception)
                 {
                     using (DialogCenteringService centeringService = new DialogCenteringService(this)) // center message box
-                        MessageBox.Show("Não foi possível carregar a foto", "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Não foi possível carregar a imagem", "SchedBrains", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -220,7 +220,10 @@ namespace SchedBrains.View
             txtEmail.Text = ContatoAtual.Email.ToString();
 
             if (ContatoAtual.Imagem != null && File.Exists(ContatoAtual.Imagem))
+            {
+                imgPerfilAtual = ContatoAtual.Imagem;
                 pcbImgPerfil.Image = new Bitmap(ContatoAtual.Imagem);
+            }
             else
                 pcbImgPerfil.Image = Properties.Resources.avatar;
 

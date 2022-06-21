@@ -99,9 +99,7 @@ namespace SchedBrains.View
         private void mnuEditar_Click(object sender, EventArgs e)
         {
             if (Situacao != SituacaoTarefa.Concluído.ToString())
-            {
                 frmTarefa.editarTarefa(IdTarefa, this);
-            }
         }
 
         private void mnuConcluir_Click(object sender, EventArgs e)

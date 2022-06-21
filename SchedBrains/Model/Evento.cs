@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchedBrains.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace SchedBrains.Model
         public string Local { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(250)]
         public string Descricao { get; set; }
 
         [Required]
@@ -32,22 +33,16 @@ namespace SchedBrains.Model
         public DateTime DataTermino { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        public string Periodicidade { get; set; }
+        public PeriodicidadeEvento Periodicidade { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        public string Status { get; set; }
+        public SituacaoEvento Situacao { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string Contato { get; set; }
+        public string? Contatos { get; set; }
 
-        [Required]
-        [MaxLength(50)]
-        public string Imagem { get; set; }
+        public string? Imagem { get; set; }
 
-        public Evento(string titulo, string local, string descricao, DateTime dataInicio, DateTime dataTermino, string periodicidade, string status, string contato, string imagem)
+        public Evento(string titulo, string local, string descricao, DateTime dataInicio, DateTime dataTermino, PeriodicidadeEvento periodicidade, SituacaoEvento situacao, string? contatos, string? imagem)
         {
             Titulo = titulo;
             Local = local;
@@ -55,9 +50,9 @@ namespace SchedBrains.Model
             DataInicio = dataInicio;
             DataTermino = dataTermino;
             Periodicidade = periodicidade;
-            Status = status;
+            Situacao = situacao;
+            Contatos = contatos;
             Imagem = imagem;
-            Contato = contato;
         }
 
         public Evento() { }

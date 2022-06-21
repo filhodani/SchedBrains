@@ -90,6 +90,9 @@
             // 
             // pcbImgPerfil
             // 
+            this.pcbImgPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pcbImgPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.pcbImgPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcbImgPerfil.Image = global::SchedBrains.Properties.Resources.avatar;
